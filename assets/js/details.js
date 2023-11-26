@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const borderCountries = document.querySelector(
                 ".border-countries .btn-group"
             );
-            console.log(data);
 
             const currencyData = Object.values(data[0].currencies).map(
                 (currency) => currency.name

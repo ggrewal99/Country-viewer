@@ -48,11 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 suffix = "all";
             } else {
                 suffix = `region/${selectedRegion}`;
-                console.log(suffix);
             }
         }
-
-        console.log(suffix);
 
         axios
             .get(`https://restcountries.com/v3.1/${suffix}`)
@@ -60,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 loadMoreBtn.classList.remove("d-none");
                 data = result.data;
                 end = Math.min(end, data.length);
-                console.log(data);
                 data.slice(start, end).forEach((country) => {
                     const card = document.createElement("div");
                     const flag_container = document.createElement("div");
