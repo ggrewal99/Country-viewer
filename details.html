@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/details.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+    <link rel="stylesheet" href="assets/css/spinner.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="assets/img/icons8-globe-48.png">
+    <script src="https://kit.fontawesome.com/513080e5af.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="">
+    <header class="navbar">
+        <a class="nav-left" href="index.html">
+            <h2><i class="fa-solid fa-globe"></i> Where in the world?</h2>
+        </a>
+
+        <div class="btn b-radius-7 nav-right dark-mode-btn">
+            <i class="fa-regular fa-moon"></i>
+            <span>Dark Mode</span>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <section class="heading">
+            <div class="back-btn-container">
+                <button type="button" class="btn b-radius-7 back-btn"><i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span></button>
+            </div>
+        </section>
+
+        <div class="spinner-container">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <section class="detail-main-content">
+            <div class="img-container">
+                <img src="" alt="flag" class="b-radius-7">
+            </div>
+            <div class="details-section">
+                <h1 class="d_country-name"></h1>
+                <div class="otherInfoContainer">
+                    <div class="info1">
+                        <p>Native Name: <span class="native-name"></span></p>
+                        <p>Population: <span class="population"></span></p>
+                        <p>Region: <span class="region"></span></p>
+                        <p>Sub Region: <span class="sub-region"></span></p>
+                        <p>Capital: <span class="capital"></span></p>
+                    </div>
+                    <div class="info2">
+                        <p>Top Level Domain: <span class="domain"></span></p>
+                        <p>Currencies: <span class="currency"></span></p>
+                        <p>Languages: <span class="language"></span></p>
+                    </div>
+                </div>
+
+                <div class="border-countries">
+                    <p>Border Countries:</p>
+                    <div class="btn-group">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/details.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+</body>
+
+</html>
