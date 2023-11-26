@@ -1,3 +1,6 @@
+// This script manages the behavior of the home page (index.html),
+// including filtering, searching, and displaying some country info.
+
 document.addEventListener("DOMContentLoaded", () => {
     const filterContainer = document.querySelector(".filter-container");
     const filterDropdown = document.querySelector(".filter-dropdown");
@@ -10,16 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedRegion = "all";
     let searchMode = false;
 
+    // Initiates a country search based on the input value.
     const searchCountry = () => {
         searchMode = true;
         clearResults();
         showResult(0, noOfResults, searchMode);
     };
 
+    // Formats a number to include commas for better readability.
     const numberFormatter = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
+    // Clears the existing results in the main content area.
     const clearResults = () => {
         document.querySelector(".main-content").innerHTML = "";
     };
@@ -28,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = `details.html?country=${name}`;
     };
 
+    // Retrieves country details and displays them on the page.
     const showResult = (start, end, searchMode) => {
         let data = "";
 
@@ -87,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         country.population
                     )}</span>`;
                     region.innerHTML = `Region: <span>${country.region}</span>`;
+
+                    // If the country has multiple capitals, display the first one.
                     if (
                         country.capital &&
                         Array.isArray(country.capital) &&
@@ -125,8 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-    // Event listeners
+    // EVENT LISTENERS //
 
+    // Handles the "Load More" button click event to fetch and display more results.
     loadMoreBtn.addEventListener("click", () => {
         const startIndex = document.querySelectorAll(".card").length;
         const endIndex = startIndex + noOfResults;
@@ -168,5 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
         filterDropdown.classList.toggle("d-none");
     });
 
+    // Initializes the page by loading initial results.
     showResult(0, noOfResults, searchMode);
 });

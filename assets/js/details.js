@@ -1,3 +1,6 @@
+// This script manages the behavior of the details page (details.html),
+// fetching and displaying information about a specific country.
+
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const countryName = urlParams.get("country");
@@ -5,14 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.title = `${countryName} - Details`;
 
+    // Formats an array by joining its elements into a comma-separated string.
     const dataArrayFormatter = (array) => {
         return array.join(", ");
     };
 
+    // Formats a number to include commas for better readability.
     const numberFormatter = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
+    // Fetches detailed information about the specified country
     axios
         .get(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         .then((result) => {
