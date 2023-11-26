@@ -6,9 +6,10 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [Screenshots](#screenshots)
+  - [Link](#link)
 - [Built with](#built-with)
+    - [Resources](#resources)
 - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
@@ -26,7 +27,7 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
 
-### Screenshot
+### Screenshots
 
 Home page (Dark mode)
 ![](screenshots/home-dark-desktop.png)
@@ -34,7 +35,7 @@ Home page (Dark mode)
 Details page (Light mode)
 ![](screenshots/details-light-desktop.png)
 
-### Links
+### Link
 
 - Live Site URL: https://countryviewerweb.netlify.app/
 
@@ -45,6 +46,9 @@ Details page (Light mode)
 - Flexbox
 - CSS Grid
 - JavaScript
+
+### Resources
+- API - https://restcountries.com/
 
 ## Author
 
