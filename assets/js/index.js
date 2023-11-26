@@ -124,15 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
+
+    // Event listeners
+
     loadMoreBtn.addEventListener("click", () => {
         const startIndex = document.querySelectorAll(".card").length;
         const endIndex = startIndex + noOfResults;
         showResult(startIndex, endIndex, searchMode);
     });
-
-    showResult(0, noOfResults, searchMode);
-
-    // Event listeners
 
     searchBtn.addEventListener("click", searchCountry);
     searchInput.addEventListener("keydown", (e) => {
@@ -168,4 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
     filterContainer.addEventListener("click", () => {
         filterDropdown.classList.toggle("d-none");
     });
+
+    showResult(0, noOfResults, searchMode);
 });
