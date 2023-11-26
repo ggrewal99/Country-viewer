@@ -225,7 +225,7 @@ body {
 .card {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 300px;
     justify-self: center;
     align-self: center;
     margin-bottom: 5rem;
@@ -259,9 +259,10 @@ body {
     font-weight: 600;
 }
 
+/* 1.5:1 aspect ratio */
 .card-flag-container {
-    width: 320px;
-    height: 213px;
+    width: 300px;
+    height: 200px;
 }
 
 .card-flag-container img {
