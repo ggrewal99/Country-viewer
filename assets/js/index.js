@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchBtn = document.querySelector(".input-container button");
     const searchInput = document.querySelector(".input-container input");
     const filterTitle = document.querySelector(".filter-title");
-    let selectedRegion = 'all';
+    let selectedRegion = "all";
     let searchMode = false;
-
 
     const searchCountry = () => {
         searchMode = true;
@@ -32,15 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const showResult = (start, end, searchMode) => {
         let data = "";
 
-        let suffix = '';
+        let suffix = "";
         if (searchMode) {
-            if (searchInput.value === '') {
-                suffix = 'all';
-            } else
-                suffix = `name/${searchInput.value}`;
+            if (searchInput.value === "") {
+                suffix = "all";
+            } else suffix = `name/${searchInput.value}`;
         } else {
-            if (selectedRegion === 'all') {
-                suffix = 'all';
+            if (selectedRegion === "all") {
+                suffix = "all";
             } else {
                 suffix = `region/${selectedRegion}`;
                 console.log(suffix);
@@ -52,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         axios
             .get(`https://restcountries.com/v3.1/${suffix}`)
             .then((result) => {
+                loadMoreBtn.classList.remove("d-none");
                 data = result.data;
                 end = Math.min(end, data.length);
                 console.log(data);
@@ -84,9 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     flag.src = country.flags.png;
                     country_name.innerHTML = country.name.common;
-                    population.innerHTML = `Population: <span>${numberFormatter(country.population)}</span>`;
+                    population.innerHTML = `Population: <span>${numberFormatter(
+                        country.population
+                    )}</span>`;
                     region.innerHTML = `Region: <span>${country.region}</span>`;
-                    if (country.capital && Array.isArray(country.capital) && country.capital.length > 0) {
+                    if (
+                        country.capital &&
+                        Array.isArray(country.capital) &&
+                        country.capital.length > 0
+                    ) {
                         capital.innerHTML = `Capital: <span>${country.capital}</span>`;
                     } else {
                         capital.innerHTML = "N/A";
@@ -97,9 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 });
                 if (end < data.length) {
-                    loadMoreBtn.style.display = "block";
+                    loadMoreBtn.classList.remove("d-none");
                 } else {
-                    loadMoreBtn.style.display = "none";
+                    loadMoreBtn.classList.add("d-none");
                 }
             })
             .catch((e) => {
@@ -108,10 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     const message = document.createElement("h3");
                     message.classList.add("message");
                     message.textContent = `No results found for ${searchInput.value}`;
-                    document.querySelector(".main-content").appendChild(message);
+                    document
+                        .querySelector(".main-content")
+                        .appendChild(message);
                 }
                 console.log(
-                    "There was error while retrieving data. Please try again later", e
+                    "There was error while retrieving data. Please try again later",
+                    e
                 );
             });
     };
@@ -133,24 +141,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    filter.forEach(item => {
+    filter.forEach((item) => {
         item.addEventListener("click", () => {
             selectedRegion = item.dataset.filter;
             clearResults();
             searchMode = false;
             showResult(0, noOfResults, searchMode);
-            if (selectedRegion === 'all') {
+            if (selectedRegion === "all") {
                 filterTitle.classList.add("d-none");
             } else {
                 filterTitle.classList.remove("d-none");
-                document.querySelector(".filter-title p").textContent = selectedRegion;
+                document.querySelector(".filter-title p").textContent =
+                    selectedRegion;
             }
         });
     });
 
     filterTitle.addEventListener("click", () => {
         filterTitle.classList.add("d-none");
-        selectedRegion = 'all';
+        selectedRegion = "all";
         clearResults();
         searchMode = false;
         showResult(0, noOfResults, searchMode);
